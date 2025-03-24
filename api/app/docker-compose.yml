@@ -1,0 +1,28 @@
+version: "3.8"
+
+services: 
+  db:
+    image: mysql:latest
+    container_name: mysql_c
+    restart: always
+    volumes:
+      - db-volume:/var/lib/mysql
+      - ./beer.sql:/docker-entrypoint-initdb.d/beer.sql
+    environment: 
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test  
+      - MYSQL_PASSWORD=test
+
+  api:
+    build: ./api  # Construire l'image depuis le Dockerfile dans ./api
+    container_name: "api-beers"
+    ports: 
+      - "80.5000"
+    restart: always
+    depends_on:
+      - db
+    links:
+      - db
+volumes: 
+  db-volume: {}

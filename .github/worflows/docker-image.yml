@@ -42,12 +42,13 @@ jobs:
     # Tag the image
     - name: Tag Docker image
       run: |
-        IMAGE_NAME="your-dockerhub-username/your-image-name"
-        docker tag your-image-name:latest $IMAGE_NAME:latest
+        docker tag app-api:latest exo4dockercomposemongodb/api-app:latest
 
     # Push the Docker image to Docker Hub
     - name: Push Docker image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/your-image-name:latest
+        docker push exo4dockercomposemongodb/api-app:latest
+
+
 
 

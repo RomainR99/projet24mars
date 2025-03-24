@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-    
+
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
@@ -48,6 +48,7 @@ jobs:
     - name: Push Docker image
       run: |
         docker push exo4dockercomposemongodb/api-app:latest
+
 
 
 

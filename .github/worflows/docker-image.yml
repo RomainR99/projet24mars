@@ -4,11 +4,7 @@ on:
   push:
     branches:
       - main
-    # L'option `pull_request` est également utile si vous voulez que le workflow soit déclenché par un PR vers `main`
-    # pull_request:
-    #   branches:
-    #     - main
-
+    
 jobs:
   build_and_push:
     runs-on: ubuntu-latest

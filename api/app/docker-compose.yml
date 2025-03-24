@@ -18,11 +18,12 @@ services:
     build: ./api  # Construire l'image depuis le Dockerfile dans ./api
     container_name: "api-beers"
     ports: 
-      - "80.5000"
+      - "8081:8081"
     restart: always
     depends_on:
       - db
     links:
       - db
+
 volumes: 
   db-volume: {}

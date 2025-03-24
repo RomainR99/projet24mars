@@ -1,6 +1,6 @@
-from app import app
+from api import app
 
-from app.controller.BeerController import BeerController
+from api.controller.BeerController import BeerController
 
 @app.route('/api/beers')
 def getBeers():

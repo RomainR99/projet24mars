@@ -1,4 +1,4 @@
-from app import mysql
+from api import mysql
 
 from flask import jsonify, render_template
 

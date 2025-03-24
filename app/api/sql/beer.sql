@@ -1,0 +1,22 @@
+CREATE DATABASE  IF NOT EXISTS `beer` ;
+USE `beer`;
+
+DROP TABLE IF EXISTS `article`;
+
+CREATE TABLE `article` (
+  `ID_ARTICLE` int NOT NULL,
+  `NOM_ARTICLE` varchar(60) NOT NULL,
+  `PRIX_ACHAT` float NOT NULL,
+  `VOLUME` int NOT NULL,
+  `TITRAGE` float DEFAULT NULL,
+  `ID_MARQUE` int DEFAULT NULL,
+  `ID_Couleur` int DEFAULT NULL,
+  `ID_TYPE` int DEFAULT NULL,
+  PRIMARY KEY (`ID_ARTICLE`),
+  UNIQUE KEY `ID_ARTICLE` (`ID_ARTICLE`),
+  KEY `FK_Article_ID_Couleur` (`ID_Couleur`),
+  KEY `FK_Article_ID_MARQUE` (`ID_MARQUE`),
+  KEY `FK_Article_ID_TYPE` (`ID_TYPE`),
+  CONSTRAINT `FK_Article_ID_Couleur` FOREIGN KEY (`ID_Couleur`) REFERENCES `couleur` (`ID_Couleur`),
+  CONSTRAINT `FK_Article_ID_MARQUE` FOREIGN KEY (`ID_MARQUE`) REFERENCES `marque` (`ID_MARQUE`),
+  CONSTRAINT `FK_Article_ID_TYPE` FOREIGN KEY (`ID_TYPE`) REFERENCES `type` (`ID_TYPE`)

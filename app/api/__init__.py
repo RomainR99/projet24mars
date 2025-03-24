@@ -5,7 +5,7 @@ app = Flask(__name__)
 CORS(app)
 mysql = MySQL(app)
 
-from app import routes
+from api import routes
 
 app.config['MYSQL_HOST']='db'
 app.config['MYSQL_USER']='root'
